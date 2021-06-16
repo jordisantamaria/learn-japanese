@@ -1,18 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <AppContainer>
+    <h2 class="mb-4">Lists</h2>
+      <ListGroup v-for="list in vocabLists" :vocab-list="list" :key="list.id"/>
+       <v-btn :to="{name: 'CreateList'}" >Create List</v-btn>
+  </AppContainer>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import Vue from "vue";
+import AppContainer from "@/components/shared/AppContainer.vue";
+import ListGroup from "@/components/ListGroup.vue";
+import data from "../../data";
 
-@Component({
+export default Vue.extend({
+  name: "Home",
   components: {
-    HelloWorld
+    ListGroup,
+    AppContainer
+  },
+  computed: {
+    vocabLists() {
+      console.log('state = ', this.$store.state)
+      return this.$store.state.vocabLists
+    }
   }
-})
-export default class Home extends Vue {}
+});
 </script>

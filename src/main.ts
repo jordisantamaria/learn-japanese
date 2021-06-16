@@ -1,16 +1,16 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
-import vuetify from './plugins/vuetify';
-import { i18n } from '@/plugins/i18n';
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import VueCompositionApi from "@vue/composition-api";
+import vuetify from "./plugins/vuetify";
 
 Vue.config.productionTip = false;
+Vue.use(VueCompositionApi);
 
 new Vue({
-    i18n,
-    router,
-    store,
-    vuetify,
-    render: (h) => h(App),
-}).$mount('#app');
+  router,
+  store,
+  vuetify,
+  render: (h) => h(App),
+}).$mount("#app");
