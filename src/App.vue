@@ -1,38 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
+    <AppBar/>
+    <ErrorAlert/>
     <v-main>
       <router-view />
     </v-main>
@@ -40,13 +9,56 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
+import AppBar from "@/components/AppBar.vue";
+import ErrorAlert from "@/components/ErrorAlert.vue";
 
 export default Vue.extend({
-  name: "App",
-
+    name: 'App',
+  components: { ErrorAlert, AppBar },
   data: () => ({
-    //
-  }),
+        //
+    }),
 });
 </script>
+<style lang="scss">
+#app {
+    font-family: 'Source Sans Pro', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #4d4f5c;
+}
+#app h1,
+h2,
+h3,
+h4 {
+    color: #43425d;
+    font-weight: 500;
+}
+.v-application .display-1 {
+    font-weight: bold;
+}
+
+input {
+    border-color: #e9e9f0 !important;
+}
+.theme--light.v-text-field > .v-input__control > .v-input__slot:before {
+    border-color: #e9e9f0 !important;
+}
+.theme--light.v-input input,
+.theme--light.v-input textarea {
+    color: #43425d;
+}
+
+.v-skeleton-loader__image.v-skeleton-loader__bone {
+    height: 100%;
+}
+
+.px-60 {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.pb-60 {
+    padding-bottom: 60px;
+}
+</style>

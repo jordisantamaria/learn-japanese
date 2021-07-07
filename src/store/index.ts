@@ -1,13 +1,8 @@
-import { IState } from "@/types";
-import Vue from "vue";
-import Vuex from "vuex";
-import vocabListModule from "./modules/VocabList";
-import data from "../../data";
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store<IState>({
-  modules: {
-    vocabLists: vocabListModule
-  },
+export default new Vuex.Store({
+  strict: true,
 });
