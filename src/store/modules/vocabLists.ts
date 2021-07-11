@@ -38,8 +38,8 @@ export default class VocabListsModule extends VuexModule {
 
   @Mutation
   DELETE_VOCABLIST_SUCCESS(id: number) {
-    this.vocabListsArray = this.vocabListsArray.map((res) => {
-      return res.id === id ? { ...res, isActive: false } : res;
+    this.vocabListsArray = this.vocabListsArray.filter((res) => {
+      return res.id != id
     });
   }
 

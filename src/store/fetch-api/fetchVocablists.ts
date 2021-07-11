@@ -12,5 +12,5 @@ export const fetchPutVocabList = async (fields: Partial<IVocabList>, id: number)
 };
 
 export const fetchDeleteVocabList = async (id: number) => {
-    return await fetchApi(`vocablists/${id}`, HttpMethod.DELETE, { isActive: false });
+    return await fetchApi(`vocablists/${id}`, HttpMethod.DELETE);
 };

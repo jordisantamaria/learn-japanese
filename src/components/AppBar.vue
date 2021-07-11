@@ -5,7 +5,11 @@
       dense
       dark
     >
-      <v-toolbar-title>Learn Japanese</v-toolbar-title>
+      <v-toolbar-title>
+        <router-link to="/" class="white--text text-decoration-none"
+        >Learn Japanese</router-link
+        >
+      </v-toolbar-title>
     </v-app-bar>
   </div>
 </template>
@@ -17,6 +21,5 @@ import { Component, Prop, Vue } from "vue-property-decorator";
   components: {}
 })
 export default class AppBar extends Vue {
-  @Prop() prop: string | undefined;
 }
 </script>
